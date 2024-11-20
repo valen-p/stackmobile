@@ -40,20 +40,21 @@
             }, (error) => {
                 console.error("MapView failed to load: ", error);
             });
-        });
-        const locateBtn = new Locate({
-          view: view
-        });
 
-        // Add the locate widget to the top left corner of the view
-        view.ui.add(locateBtn, {
-          position: "top-left"
+            // Create the Locate widget
+            const locateBtn = new Locate({
+                view: view
+            });
+
+            // Add the locate widget to the top left corner of the view
+            view.ui.add(locateBtn, {
+                position: "top-left"
+            });
         });
     </script>
 </head>
 <body>
     <!-- Add a div element to contain the map view -->
     <div id="viewDiv"></div>
-    
 </body>
 </html>
