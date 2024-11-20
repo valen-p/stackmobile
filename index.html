@@ -37,18 +37,18 @@
             // Add a check to ensure the view is loaded
             view.when(() => {
                 console.log("MapView is loaded");
+
+                // Create the Locate widget
+                const locateBtn = new Locate({
+                    view: view
+                });
+
+                // Add the locate widget to the top left corner of the view
+                view.ui.add(locateBtn, {
+                    position: "top-left"
+                });
             }, (error) => {
                 console.error("MapView failed to load: ", error);
-            });
-
-            // Create the Locate widget
-            const locateBtn = new Locate({
-                view: view
-            });
-
-            // Add the locate widget to the top left corner of the view
-            view.ui.add(locateBtn, {
-                position: "top-left"
             });
         });
     </script>
