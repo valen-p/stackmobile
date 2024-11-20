@@ -49,12 +49,7 @@
                 const locateBtn = new Locate({
                     view: view
                 });
-// Create featurelayer from feature service 
-const layer = new FeatureLayer({ 
-  // URL to the service 
-   url: "https://arcg.is/0XqLnn0" //My URL for my survey
-});
-map.add(layer);
+
                 // Add the locate widget to the top left corner of the view
                 view.ui.add(locateBtn, {
                     position: "top-left"
@@ -69,6 +64,12 @@ map.add(layer);
                 view.ui.add(searchWidget, {
                     position: "top-right"
                 });
+
+                // Create feature layer from feature service
+                const layer = new FeatureLayer({
+                    url: "https://arcg.is/0XqLnn0" // URL for the survey
+                });
+                map.add(layer);
             }, (error) => {
                 console.error("MapView failed to load: ", error);
             });
