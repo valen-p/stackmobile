@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+   <title>Data Collector for AGOL</title>
+   <style>
+    html,
+    body,
+    #viewDiv {
+     padding: 0;
+     margin: 0;
+     height: 100%;
+     width: 100%;
+    }
+   </style>
+<!-- Load the ArcGIS API for JavaScript -->
+<link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+<script src="https://js.arcgis.com/4.26/"></script>
+<script>
+    // Load the modules for the ArcGIS API for JavaScript
+    require([ "esri/config", "esri/Map", "esri/views/MapView" ], (esri/config,Map, MapView) => {
+        const map = new Map({
+            esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGOndvn56RaIuEG-ymH-92haus5XOWjwfQcNHTRTeMO7efrrwIO_P1WvjAaKi6OQjJ3GIY_futaMIJKN2YL-EYHTHG9Rv2I800yOHi-R0CETmNtIv1jHJiXDbTrmTiJeXLEP-6WMH6Zj1mNwmZT3z5l5nB_2nXXSVTEuDcqBFo737s7VpsbqFXNy4GrGXkfT9juBGmdeoQdWJ8oZqkquRShfozv5LIG5tRroi4bCPx5GAT1_IuAFCiIJ";
+ // Basemap layer
+            basemap: "satellite"
+ });
+ // Create a MapView instance (for 2D viewing) and reference the map object
+ const view = new MapView({
+ container: "viewDiv", // Reference to the DOM node that will contain the view
+ map: map // References the map object
+});
+     });
+    </script>
+  </head>
+  <body>
+    <!-- Add a div element to contain the map view -->
+    <div id="viewDiv"></div>
+  </body>
+</html>
