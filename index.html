@@ -24,8 +24,9 @@
             "esri/Map", 
             "esri/views/MapView", 
             "esri/widgets/Locate", 
-            "esri/widgets/Search"
-        ], (esriConfig, Map, MapView, Locate, Search) => {
+            "esri/widgets/Search",
+            "esri/layers/FeatureLayer"
+        ], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
             esriConfig.apiKey = "AAPTxy8BH1VEsoebNVZXo8HurGOndvn56RaIuEG-ymH-92haus5XOWjwfQcNHTRTeMO7efrrwIO_P1WvjAaKi6OQjJ3GIY_futaMIJKN2YL-EYHTHG9Rv2I800yOHi-R0CETmNtIv1jHJiXDbTrmTiJeXLEP-6WMH6Zj1mNwmZT3z5l5nB_2nXXSVTEuDcqBFo737s7VpsbqFXNy4GrGXkfT9juBGmdeoQdWJ8oZqkquRShfozv5LIG5tRroi4bCPx5GAT1_IuAFCiIJ";
             
             const map = new Map({
@@ -48,7 +49,12 @@
                 const locateBtn = new Locate({
                     view: view
                 });
-
+// Create featurelayer from feature service 
+const layer = new FeatureLayer({ 
+  // URL to the service 
+   url: "https://arcg.is/0XqLnn0" //My URL for my survey
+});
+map.add(layer);
                 // Add the locate widget to the top left corner of the view
                 view.ui.add(locateBtn, {
                     position: "top-left"
