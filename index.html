@@ -79,16 +79,25 @@
                     view: view
                 });
 
-                // Add the Search widget to the top center of the view
+                // Add the Search widget to the top left corner of the view
                 view.ui.add(searchWidget, {
-                    position: "top-left"
+                    position: "top-right"
                 });
 
                 // Create feature layer from feature service
                 const layer = new FeatureLayer({
                     url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_097104265b2541289943f3f2a0bf0aed_results/FeatureServer" // URL for the survey
                 });
+
+                // Add the feature layer to the map
                 map.add(layer);
+
+                // Check if the layer is loaded
+                layer.when(() => {
+                    console.log("FeatureLayer is loaded");
+                }, (error) => {
+                    console.error("FeatureLayer failed to load: ", error);
+                });
             }, (error) => {
                 console.error("MapView failed to load: ", error);
             });
