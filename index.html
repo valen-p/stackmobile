@@ -92,14 +92,7 @@
                 // Add the feature layer to the map
                 map.add(layer);
 
-                // Check if the layer is loaded
-                layer.when(() => {
-                    console.log("FeatureLayer is loaded");
-                }, (error) => {
-                    console.error("FeatureLayer failed to load: ", error);
-                });
-            }, (error) => {
-                console.error("MapView failed to load: ", error);
+        
             });
         });
     </script>
